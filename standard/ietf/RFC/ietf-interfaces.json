@@ -1,0 +1,177 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "ietf-interfaces#",
+    "description": "JSON-schema generated for ietf-interfaces object",
+    "type": "object",
+    "interface-ref": {
+        "type": "string"
+    },
+    "interface-state-ref": {
+        "type": "string"
+    },
+    "properties": {
+        "interfaces": {
+            "properties": {
+                "interface": {
+                    "items": {
+                        "properties": {
+                            "description": {
+                                "type": "string"
+                            },
+                            "enabled": {
+                                "type": "boolean"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "link-up-down-trap-enable": {
+                                "enum": [
+                                    "enabled",
+                                    "disabled"
+                                ],
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "additionalProperties": false,
+                    "type": "array",
+                    "id": "#interface"
+                }
+            },
+            "type": "object",
+            "additionalProperties": false,
+            "id": "#interfaces"
+        },
+        "interfaces-state": {
+            "properties": {
+                "interface": {
+                    "items": {
+                        "properties": {
+                            "lower-layer-if": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "higher-layer-if": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "admin-status": {
+                                "enum": [
+                                    "up",
+                                    "down",
+                                    "testing"
+                                ],
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "oper-status": {
+                                "enum": [
+                                    "up",
+                                    "down",
+                                    "testing",
+                                    "unknown",
+                                    "dormant",
+                                    "not-present",
+                                    "lower-layer-down"
+                                ],
+                                "type": "string"
+                            },
+                            "last-change": {
+                                "$ref": "/yang#date-and-time"
+                            },
+                            "speed": {
+                                "$ref": "/yang#gauge64"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "if-index": {
+                                "format": "int32",
+                                "type": "integer"
+                            },
+                            "statistics": {
+                                "properties": {
+                                    "in-broadcast-pkts": {
+                                        "$ref": "/yang#counter64"
+                                    },
+                                    "in-octets": {
+                                        "$ref": "/yang#counter64"
+                                    },
+                                    "out-broadcast-pkts": {
+                                        "$ref": "/yang#counter64"
+                                    },
+                                    "discontinuity-time": {
+                                        "$ref": "/yang#date-and-time"
+                                    },
+                                    "out-errors": {
+                                        "$ref": "/yang#counter32"
+                                    },
+                                    "in-errors": {
+                                        "$ref": "/yang#counter32"
+                                    },
+                                    "in-unknown-protos": {
+                                        "$ref": "/yang#counter32"
+                                    },
+                                    "out-multicast-pkts": {
+                                        "$ref": "/yang#counter64"
+                                    },
+                                    "in-discards": {
+                                        "$ref": "/yang#counter32"
+                                    },
+                                    "out-octets": {
+                                        "$ref": "/yang#counter64"
+                                    },
+                                    "in-multicast-pkts": {
+                                        "$ref": "/yang#counter64"
+                                    },
+                                    "out-unicast-pkts": {
+                                        "$ref": "/yang#counter64"
+                                    },
+                                    "in-unicast-pkts": {
+                                        "$ref": "/yang#counter64"
+                                    },
+                                    "out-discards": {
+                                        "$ref": "/yang#counter32"
+                                    }
+                                },
+                                "required": [
+                                    "discontinuity-time"
+                                ],
+                                "type": "object",
+                                "additionalProperties": false,
+                                "id": "#statistics"
+                            },
+                            "phys-address": {
+                                "$ref": "/yang#phys-address"
+                            }
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "admin-status",
+                        "oper-status",
+                        "if-index"
+                    ],
+                    "additionalProperties": false,
+                    "type": "array",
+                    "id": "#interface"
+                }
+            },
+            "type": "object",
+            "additionalProperties": false,
+            "id": "#interfaces-state"
+        }
+    }
+}
