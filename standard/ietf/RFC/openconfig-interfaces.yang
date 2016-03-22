@@ -1,4 +1,4 @@
-﻿module openconfig-interfaces {
+module openconfig-interfaces {
 
   yang-version "1";
 
