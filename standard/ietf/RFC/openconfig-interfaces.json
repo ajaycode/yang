@@ -1,0 +1,278 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "openconfig-interfaces#",
+    "description": "JSON-schema generated for openconfig-interfaces object",
+    "type": "object",
+    "interface-phys-holdtime-top": {
+        "additionalProperties": false,
+        "type": "object",
+        "id": "#interface-phys-holdtime-top",
+        "properties": {
+            "hold-time": {
+                "additionalProperties": false,
+                "type": "object",
+                "id": "#hold-time",
+                "properties": {
+                    "state": {
+                        "$ref": "openconfig-interfaces#interface-phys-holdtime-state"
+                    },
+                    "config": {
+                        "$ref": "openconfig-interfaces#interface-phys-holdtime-config"
+                    }
+                }
+            }
+        }
+    },
+    "subinterfaces-config": {
+        "allOf": [
+            {
+                "$ref": "openconfig-interfaces#interface-common-config"
+            },
+            {
+                "properties": {
+                    "index": {
+                        "type": "string"
+                    },
+                    "unnumbered": {
+                        "type": "string"
+                    }
+                }
+            }
+        ]
+    },
+    "subinterfaces-state": {
+        "$ref": "openconfig-interfaces#interface-counters-state"
+    },
+    "interface-common-state": {
+        "additionalProperties": false,
+        "required": [
+            "admin-status",
+            "oper-status"
+        ],
+        "type": "object",
+        "id": "#interface-common-state",
+        "properties": {
+            "ifindex": {
+                "type": "string"
+            },
+            "oper-status": {
+                "enum": [
+                    "UP",
+                    "DOWN",
+                    "TESTING",
+                    "UNKNOWN",
+                    "DORMANT",
+                    "NOT-PRESENT",
+                    "LOWER-LAYER-DOWN"
+                ],
+                "type": "string"
+            },
+            "last-change": {
+                "$ref": "/yang#timeticks"
+            },
+            "admin-status": {
+                "enum": [
+                    "UP",
+                    "DOWN",
+                    "TESTING"
+                ],
+                "type": "string"
+            }
+        }
+    },
+    "interface-phys-holdtime-config": {
+        "additionalProperties": false,
+        "type": "object",
+        "id": "#interface-phys-holdtime-config",
+        "properties": {
+            "down": {
+                "type": "string"
+            },
+            "up": {
+                "type": "string"
+            }
+        }
+    },
+    "interface-counters-state": {
+        "additionalProperties": false,
+        "type": "object",
+        "id": "#interface-counters-state",
+        "properties": {
+            "counters": {
+                "additionalProperties": false,
+                "type": "object",
+                "id": "#counters",
+                "properties": {
+                    "out-octets": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "out-errors": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "in-multicast-pkts": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "out-unicast-pkts": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "in-errors": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "out-multicast-pkts": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "in-discards": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "last-clear": {
+                        "$ref": "/yang#date-and-time"
+                    },
+                    "in-unicast-pkts": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "out-broadcast-pkts": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "out-discards": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "in-broadcast-pkts": {
+                        "$ref": "/yang#counter64"
+                    },
+                    "in-unknown-protos": {
+                        "$ref": "/yang#counter32"
+                    },
+                    "in-octets": {
+                        "$ref": "/yang#counter64"
+                    }
+                }
+            }
+        }
+    },
+    "subinterfaces-top": {
+        "additionalProperties": false,
+        "type": "object",
+        "id": "#subinterfaces-top",
+        "properties": {
+            "subinterfaces": {
+                "additionalProperties": false,
+                "type": "object",
+                "id": "#subinterfaces",
+                "properties": {
+                    "subinterface": {
+                        "additionalProperties": false,
+                        "items": {
+                            "properties": {
+                                "index": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "$ref": "openconfig-interfaces#subinterfaces-state"
+                                },
+                                "config": {
+                                    "$ref": "openconfig-interfaces#subinterfaces-config"
+                                }
+                            }
+                        },
+                        "type": "array",
+                        "id": "#subinterface"
+                    }
+                }
+            }
+        }
+    },
+    "interface-phys-config": {
+        "allOf": [
+            {
+                "$ref": "openconfig-interfaces#interface-common-config"
+            },
+            {
+                "properties": {
+                    "required": [
+                        "type"
+                    ],
+                    "type": {
+                        "type": "string"
+                    },
+                    "mtu": {
+                        "type": "string"
+                    }
+                }
+            }
+        ]
+    },
+    "interface-phys-holdtime-state": {
+        "additionalProperties": false,
+        "type": "object",
+        "id": "#interface-phys-holdtime-state"
+    },
+    "interface-common-config": {
+        "additionalProperties": false,
+        "type": "object",
+        "id": "#interface-common-config",
+        "properties": {
+            "enabled": {
+                "type": "boolean"
+            },
+            "name": {
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            }
+        }
+    },
+    "interfaces-top": {
+        "additionalProperties": false,
+        "type": "object",
+        "id": "#interfaces-top",
+        "properties": {
+            "interfaces": {
+                "additionalProperties": false,
+                "type": "object",
+                "id": "#interfaces",
+                "properties": {
+                    "interface": {
+                        "items": {
+                            "allOf": [
+                                {
+                                    "$ref": "openconfig-interfaces#subinterfaces-top"
+                                },
+                                {
+                                    "properties": {
+                                        "state": {
+                                            "$ref": "openconfig-interfaces#interface-counters-state"
+                                        },
+                                        "config": {
+                                            "$ref": "openconfig-interfaces#interface-phys-config"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "interface-ref": {
+        "type": "string"
+    },
+    "properties": {
+        "interfaces": {
+            "additionalProperties": false,
+            "type": "object",
+            "id": "#interfaces",
+            "properties": {
+                "interface": {
+                    "items": {
+                        "$ref": "openconfig-interfaces#subinterfaces-top"
+                    }
+                }
+            }
+        }
+    }
+}
